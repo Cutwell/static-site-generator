@@ -1,0 +1,4 @@
+./.github/*
+./.venv/*
+./static_site_gen/*
+./README.md

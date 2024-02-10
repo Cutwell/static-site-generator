@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>hi</title>
+        <link rel="stylesheet" type="text/css" href="./templates/style.css">
+    </head>
+    <body>
+        <p>Hi, this is my blog.</p>
+<p>Install <code>ssg</code> with dev dependencies to test:</p>
+<p><code>sh
+poetry install --with dev</code></p>
+<p>Build with:</p>
+<p><code>sh
+poetry run ssg --run=./static_site_gen/tests --config=./static_site_gen/tests/config.toml</code></p>
+<p>Run with a simple Flask server:</p>
+<p><code>sh
+poetry run flask --app=./static_site_gen/tests/server.py run</code></p>
+<p>Thanks for reading!</p>
+    </body>
+</html>

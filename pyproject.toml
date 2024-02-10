@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "static-site-gen"
+version = "0.1.0"
+description = "A CLI tool for converting Markdown to HTML."
+authors = ["Cutwell"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "static_site_gen"}]
+repository = "https://github.com/Cutwell/static_site_gen"
+
+[tool.poetry.dependencies]
+python = "3.11.6"
+Markdown = "^3.5.2"
+Pygments = "^2.17.2"
+tqdm = "^4.66.1"
+jinja2 = "^3.1.3"
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.2.1"
+pdoc3 = "^0.10.0"
+pytest = "^8.0.0"
+flask = "^3.0.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+ssg = "static_site_gen.src.generator:cli"
