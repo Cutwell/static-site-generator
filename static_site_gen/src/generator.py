@@ -5,7 +5,7 @@ import tomllib
 import fnmatch
 import jinja2
 
-import markdown
+import mistletoe
 from tqdm import tqdm
 
 TITLE = """\
@@ -200,7 +200,7 @@ def main():
 
                 output = template.render(
                     title=metadata["title"],
-                    body=markdown.markdown(body, extensions=["codehilite"]),
+                    body=mistletoe.markdown(body),
                 )
 
                 html_filepath = replace_extension(filepath, new_extension="html")

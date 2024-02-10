@@ -4,66 +4,93 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Static Site Gen /docs</title>
+        <link rel="stylesheet" type="text/css" href="./docs/resources/style.css">
     </head>
     <body>
         <h1>Static Site Gen /docs</h1>
 <h2>Self-compile</h2>
 <p>Install <code>ssg</code> with dependencies to test:</p>
-<p><code>sh
-poetry install --with dev</code></p>
+<pre><code class="language-sh">poetry install --with dev
+</code></pre>
 <p>Build (from project root) with:</p>
-<p><code>sh
-poetry run ssg --run=./docs --config=./docs/config.toml --ignore=./.ssgignore</code></p>
+<pre><code class="language-sh">poetry run ssg --run=./docs --config=./docs/config.toml --ignore=./.ssgignore
+</code></pre>
 <h2>Usage</h2>
-<p><code>sh
-ssg [-h] [--help] [--safe] [--debug] [--run=&lt;project_root&gt;] [--config=&lt;config.toml&gt;] [--ignore=&lt;.ssgignore&gt;]</code></p>
-<p>|Flag|Description|
-|:---:|:---:|
-|<code>-h</code>, <code>--help</code>|Show this help message and exit (optional).|
-|<code>--safe</code>|Don't overwrite existing files (optional).|
-|<code>--run=</code>|Specify website root folder (required).|
-|<code>--config=</code>|Default metadata configuration in YAML format (optional).|
-|<code>--ignore=</code>|Filepath to list of newline separated file paths to skip (optional).|
-|<code>--debug</code>|Enable debug logging (optional)|</p>
+<pre><code class="language-sh">ssg [-h] [--help] [--safe] [--debug] [--run=&lt;project_root&gt;] [--config=&lt;config.toml&gt;] [--ignore=&lt;.ssgignore&gt;]
+</code></pre>
+<table>
+<thead>
+<tr>
+<th align="center">Flag</th>
+<th align="center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><code>-h</code>, <code>--help</code></td>
+<td align="center">Show this help message and exit (optional).</td>
+</tr>
+<tr>
+<td align="center"><code>--safe</code></td>
+<td align="center">Don't overwrite existing files (optional).</td>
+</tr>
+<tr>
+<td align="center"><code>--run=</code></td>
+<td align="center">Specify website root folder (required).</td>
+</tr>
+<tr>
+<td align="center"><code>--config=</code></td>
+<td align="center">Default metadata configuration in YAML format (optional).</td>
+</tr>
+<tr>
+<td align="center"><code>--ignore=</code></td>
+<td align="center">Filepath to list of newline separated file paths to skip (optional).</td>
+</tr>
+<tr>
+<td align="center"><code>--debug</code></td>
+<td align="center">Enable debug logging (optional)</td>
+</tr>
+</tbody>
+</table>
 <h2>Customisation</h2>
 <h3>Global metadata settings</h3>
 <p>Example metadata (saved as <code>.toml</code> file and specified using <code>--config=</code> setting):</p>
-<p><code>toml
-[default]
+<pre><code class="language-toml">[default]
 title="My Title"
 template="/path/to/file.html"
-rootdir="/absolute/path/to/rootdir"</code></p>
+rootdir="/absolute/path/to/rootdir"
+</code></pre>
 <h3>Individual metadata settings</h3>
 <p>Example metadata (at top of <code>.md</code> files):</p>
-<h2>```markdown</h2>
-<p>title: My Title
-template: /path/to/file.html</p>
-<hr />
-<p>```</p>
+<pre><code class="language-markdown">---
+title: My Title
+template: /path/to/file.html
+---
+</code></pre>
 <h3>Jinja2 HTML Templating</h3>
 <ul>
 <li>We use Jinja2 for formatting generated HTML (and other variables) into the HTML template:</li>
 </ul>
-<p>```html</p>
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>{{ title }}</title>
-    </head>
-    <body>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+    &lt;head&gt;
+        &lt;meta charset="UTF-8"&gt;
+        &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+        &lt;title&gt;{{ title }}&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
         {{ body }}
-    </body>
-</html>
-<p>```</p>
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
 <h2>Run locally</h2>
 <h3>Install dependencies</h3>
-<p><code>sh
-poetry install --without dev</code></p>
+<pre><code class="language-sh">poetry install --without dev
+</code></pre>
 <h3>Usage</h3>
 <p>Run the program from the command line (from the project root) like this:</p>
-<p><code>sh
-poetry run ssg run .</code></p>
+<pre><code class="language-sh">poetry run ssg run .
+</code></pre>
+
     </body>
 </html>

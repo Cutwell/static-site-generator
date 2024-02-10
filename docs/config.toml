@@ -1,2 +1,3 @@
 [default]
 title = "Static Site Gen /docs"
+template = "./docs/resources/index.html"
